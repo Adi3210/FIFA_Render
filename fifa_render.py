@@ -42,8 +42,6 @@ wins_df = df.groupby('Winner').size().reset_index(name='Times Won')
 
 
 # Step 2: Create the Choropleth Map of World Cup wins
-.
-
 fig_choropleth = px.choropleth(
     wins_df,
     locations="Winner",
@@ -59,6 +57,7 @@ fig_choropleth.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 # Step 3: Build the Dash App Layout
 
 app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
     html.H1("FIFA World Cup Dashboard", style={"textAlign": "center"}),
